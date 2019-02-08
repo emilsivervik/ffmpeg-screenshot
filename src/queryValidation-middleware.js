@@ -8,19 +8,19 @@ const queryKeys = ['url', 'size', 'timestamp'];
 
 const queryMiddleware = (req, res, next) => {
     const validationArr = [];
-    Object.entries(Object.assign({}, req.params, req.query)).forEach(([property, value]) => {
-        if (!(validateType(property, value)))
+    const mergedObject = Object.assign({}, req.params, req.query);
+
+    if (!mergedObject['url']) { return res.status(400).send('url parameter is required.'); }
+
+    Object.entries(mergedObject).forEach(([property, value]) => {
+        if (!(validateType(property, value))) {
             validationArr.push(`Param \'${property}\' is not valid`);
+        }
     });
 
     if (validationArr.length) { return res.status(400).send(validationArr); }
     return next();
 };
-
-const domainMiddleware = (req, res, next) => {
-    req.query.domain = req.protocol + '://' + req.get('host');
-    return next();
-}
 
 const validateType = (property, value) => {
     switch (property) {

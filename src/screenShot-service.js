@@ -12,7 +12,7 @@ ffmpeg.setFfprobePath(ffprobeStatic.path);
 
 const fs = require('fs')
 const path = require('path')
-const tmpFolderPath = path.join(__dirname, 'tmp');
+const tmpFolderPath = path.join(__dirname, '/../tmp');
 const tmpExist = fs.existsSync(tmpFolderPath);
 if (!tmpExist) { fs.mkdirSync(tmpFolderPath) }
 
