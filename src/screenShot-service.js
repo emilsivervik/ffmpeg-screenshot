@@ -4,11 +4,9 @@ const express = require('express');
 const router = express.Router();
 
 const ffmpegStatic = require('ffmpeg-static');
-const ffprobeStatic = require('ffprobe-static');
 const ffmpeg = require('fluent-ffmpeg');
 
 ffmpeg.setFfmpegPath(ffmpegStatic.path);
-ffmpeg.setFfprobePath(ffprobeStatic.path);
 
 const fs = require('fs')
 const path = require('path')
