@@ -2,9 +2,9 @@
   "name": "ffmpeg-screenshot",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "./src/app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node ./src/app.js"
   },
   "author": "Emil Sivervik",
   "license": "ISC",
@@ -12,6 +12,7 @@
     "express": "^4.16.4",
     "ffmpeg-static": "^2.4.0",
     "ffprobe-static": "^3.0.0",
-    "fluent-ffmpeg": "^2.1.2"
+    "fluent-ffmpeg": "^2.1.2",
+    "validator": "^10.11.0"
   }
 }
