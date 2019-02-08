@@ -1,18 +1,27 @@
 {
-  "name": "ffmpeg-screenshot",
+  "name": "ffmpeg-thumbnail",
   "version": "1.0.0",
   "description": "",
   "main": "./src/app.js",
   "scripts": {
     "start": "node ./src/app.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/emilsivervik/ffmpeg-thumbnail"
+  },
+  "keywords": [
+    "ffmpeg",
+    "thumbnail",
+    "ffmpeg thumbnail",
+    "thumbnail ffmpeg"
+  ],
   "author": "Emil Sivervik",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "ffmpeg-static": "^2.4.0",
-    "ffprobe-static": "^3.0.0",
     "fluent-ffmpeg": "^2.1.2",
     "validator": "^10.11.0"
   }

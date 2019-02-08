@@ -25,4 +25,4 @@ Default value is `00:00:00`
 Example: `00:15:34.500` or `00:05:10`. 
 
 ## Test
-https://ffmpeg-screenshot.herokuapp.com/?url=https://d2v9y0dukr6mq2.cloudfront.net/video/preview/GTYSdDW/dog-running-and-playing-with-ball_b1hei_ogb__PM.mp4&size=233x233&timestamp=00:00:02.300
+https://ffmpeg-screenshot.herokuapp.com?url=https://d2v9y0dukr6mq2.cloudfront.net/video/preview/GTYSdDW/dog-running-and-playing-with-ball_b1hei_ogb__PM.mp4&size=233x233&timestamp=00:00:02.300
