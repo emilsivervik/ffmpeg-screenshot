@@ -4,9 +4,10 @@ const express = require('express');
 const router = express.Router();
 
 const ffmpegStatic = require('ffmpeg-static');
-const ffmpeg = require('fluent-ffmpeg');
+//const ffmpeg = require('fluent-ffmpeg');
+const { spawn } = require('child_process');
 
-ffmpeg.setFfmpegPath(ffmpegStatic.path);
+//ffmpeg.setFfmpegPath(ffmpegStatic.path);
 
 const fs = require('fs')
 const path = require('path')
@@ -18,7 +19,7 @@ router.get('/', (req, res, next) => {
     const fileName = `${Date.now().toString()}.png`;
 
     const {
-        timestamp = '00:00:00',
+        timestamp = '00:00:00.111',
         size = '270x270',
         url
     } = req.query;
@@ -31,7 +32,24 @@ router.get('/', (req, res, next) => {
         fastSeek: true
     }
 
-    ffmpeg(url)
+    const [width, height] = size.split('x');
+
+    var ffmpeg = spawn(ffmpegStatic.path, [
+        '-i', url,
+        '-ss', timestamp,
+        '-vframes', 1,
+        '-vf', `scale=${width}:${height}`,
+        '-c:v', 'png',
+        '-f', 'image2pipe',
+        'pipe:1'              // Output on stdout
+    ]);
+
+    // pipe data to AirTunes
+    ffmpeg.stdout.pipe(res)
+    ffmpeg.on('err', err => {
+        return res.status(500).send();
+    })
+    /* ffmpeg(url)
         .on('end', () => {
             const filePath = path.join(tmpFolderPath, fileName);
             const fileExist = fs.existsSync(filePath);
@@ -57,7 +75,7 @@ router.get('/', (req, res, next) => {
         .on('error', err => {
             console.error(err);
             return res.status(500).send();
-        })
+        }) */
 })
 
 module.exports = router;
