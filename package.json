@@ -4,7 +4,8 @@
   "description": "",
   "main": "./src/app.js",
   "scripts": {
-    "start": "node ./src/app.js"
+    "start": "node ./src/app.js",
+    "stresstest": "node ./test/stresstest.js"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,9 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "ffmpeg-static": "^2.4.0",
-    "fluent-ffmpeg": "^2.1.2",
     "validator": "^10.11.0"
+  },
+  "devDependencies": {
+    "request": "^2.88.0"
   }
 }
